@@ -27,12 +27,11 @@ class NewsController extends AdminController
     {
         $grid = new Grid(new News());
 
-        $grid->column('id', __('Id'));
-        $grid->column('title', __('Title'));
-        $grid->column('description', __('Description'));
-        $grid->column('status', __('Status'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('id', ('Id'));
+        $grid->column('title', ('Title'));
+        $grid->column('status', ('Status'));
+        $grid->column('created_at', ('Created at'));
+        $grid->column('updated_at', ('Updated at'));
 
         return $grid;
     }
@@ -47,12 +46,12 @@ class NewsController extends AdminController
     {
         $show = new Show(News::findOrFail($id));
 
-        $show->field('id', __('Id'));
-        $show->field('title', __('Title'));
-        $show->field('description', __('Description'));
-        $show->field('status', __('Status'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('id', ('Id'));
+        $show->field('title', ('Title'));
+        $show->field('description', ('Description'));
+        $show->field('status', ('Status'));
+        $show->field('created_at', ('Created at'));
+        $show->field('updated_at', ('Updated at'));
 
         $show->companies('companies', function ($author) {
 
@@ -73,9 +72,9 @@ class NewsController extends AdminController
     {
         $form = new Form(new News());
 
-        $form->text('title', __('Title'));
-        $form->text('description', __('Description'));
-        $form->switch('status', __('Status'));
+        $form->text('title', ('Title'));
+        $form->textarea('description', ('Description'));
+        $form->switch('status', ('Status'));
 
         $form->multipleSelect('companies', 'Company')->options(Company::all()->pluck('title','id'));
 

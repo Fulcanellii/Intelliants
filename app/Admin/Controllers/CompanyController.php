@@ -26,13 +26,12 @@ class CompanyController extends AdminController
     {
         $grid = new Grid(new Company());
 
-        $grid->column('id', __('Id'));
-        $grid->column('title', __('Title'));
-        $grid->column('description', __('Description'));
-        $grid->column('date', __('Date'));
-        $grid->column('status', __('Status'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('id', ('Id'));
+        $grid->column('title', ('Title'));
+        $grid->column('date', ('Date'));
+        $grid->column('status', ('Status'));
+        $grid->column('created_at', ('Created at'));
+        $grid->column('updated_at', ('Updated at'));
 
         return $grid;
     }
@@ -47,13 +46,13 @@ class CompanyController extends AdminController
     {
         $show = new Show(Company::findOrFail($id));
 
-        $show->field('id', __('Id'));
-        $show->field('title', __('Title'));
-        $show->field('description', __('Description'));
-        $show->field('date', __('Date'));
-        $show->field('status', __('Status'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('id', ('Id'));
+        $show->field('title', ('Title'));
+        $show->field('description', ('Description'));
+        $show->field('date', ('Date'));
+        $show->field('status', ('Status'));
+        $show->field('created_at', ('Created at'));
+        $show->field('updated_at', ('Updated at'));
 
         return $show;
     }
@@ -67,10 +66,10 @@ class CompanyController extends AdminController
     {
         $form = new Form(new Company());
 
-        $form->text('title', __('Title'));
-        $form->text('description', __('Description'));
-        $form->date('date', __('Date'))->default(date('Y-m-d'));
-        $form->switch('status', __('Status'));
+        $form->text('title', ('Title'));
+        $form->textarea('description', ('Description'));
+        $form->date('date', ('Date'))->default(date('Y-m-d'));
+        $form->switch('status', ('Status'));
 
         return $form;
     }
