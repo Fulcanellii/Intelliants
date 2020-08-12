@@ -72,8 +72,8 @@ class NewsController extends AdminController
     {
         $form = new Form(new News());
 
-        $form->text('title', ('Title'));
-        $form->textarea('description', ('Description'));
+        $form->text('title', ('Title'))->required();
+        $form->textarea('description', ('Description'))->required();
         $form->switch('status', ('Status'));
 
         $form->multipleSelect('companies', 'Company')->options(Company::all()->pluck('title','id'));

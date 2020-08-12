@@ -66,8 +66,8 @@ class CompanyController extends AdminController
     {
         $form = new Form(new Company());
 
-        $form->text('title', ('Title'));
-        $form->textarea('description', ('Description'));
+        $form->text('title', ('Title'))->required();
+        $form->textarea('description', ('Description'))->required();
         $form->date('date', ('Date'))->default(date('Y-m-d'));
         $form->switch('status', ('Status'));
 
