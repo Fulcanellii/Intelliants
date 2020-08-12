@@ -8,6 +8,6 @@ class News extends Model
 {
     public function companies()
     {
-        return $this->hasMany('App\Company');
+        return $this->belongsToMany(Company::class);
     }
 }

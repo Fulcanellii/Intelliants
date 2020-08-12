@@ -1,23 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                @foreach($news as $new)
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>{{ $new->title }}</b></h5>
+                            <p class="card-text text-muted">{{ $new->description }}</p>
                         </div>
-                    @endif
+                        <ul class="list-group list-group-flush">
+                            @foreach($new->companies->where('status', 1) as $company)
+                                <li class="list-group-item">{{ $company->title }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
 
-                    {{ __('You are logged in!') }}
-                </div>
+                    <hr>
+
+                @endforeach
+
             </div>
         </div>
     </div>
-</div>
+
 @endsection
